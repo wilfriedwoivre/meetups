@@ -1,0 +1,18 @@
+# Login
+# az login 
+# az account set --subscription 'MSDN MVP'
+
+az aks create --name  --resource-group  --node-count 1 --enable-addons http_application_routing --generate-ssh-keys
+
+# Install az aks cli
+az aks install-cli
+
+# get credentials
+az aks get-credentials --resource-group  --name 
+kubectl get nodes
+
+# Deploy 
+kubectl apply -f azure-vote.yaml
+
+# Check deployment
+kubectl get service azure-vote-front --watch

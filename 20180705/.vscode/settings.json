@@ -1,0 +1,7 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.pythonPath": "C:\\Users\\wilfr\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe",
+    "python.envFile": "${workspaceFolder}/dev.env"
+
+}
