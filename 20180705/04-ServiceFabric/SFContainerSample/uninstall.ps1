@@ -1,0 +1,4 @@
+
+Remove-ServiceFabricApplication fabric:/SFContainerSample 
+Unregister-ServiceFabricApplicationType SFContainerSampleType 1.0.0
+Remove-ServiceFabricApplicationPackage SFContainerSample

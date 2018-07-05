@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest  ApplicationTypeName="SFContainerSampleType" ApplicationTypeVersion="1.0.0"
+                      xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   
+     <Parameters>
+    <Parameter Name="ACR_Password" DefaultValue="" />
+  </Parameters>
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="sfcontainerbacksamplePkg" ServiceManifestVersion="1.0.0" />
+        <Policies>
+            <ContainerHostPolicies CodePackageRef="Code">
+                <RepositoryCredentials AccountName="" Password="[ACR_Password]" PasswordEncrypted="false" />
+                <PortBinding ContainerPort="8080" EndpointRef="sfcontainerbacksampleEndpoint"/>
+            </ContainerHostPolicies>
+        </Policies>
+   </ServiceManifestImport>
+   
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="sfcontainerfrontsamplePkg" ServiceManifestVersion="1.0.0" />
+        <Policies>
+            <ContainerHostPolicies CodePackageRef="Code">
+                <RepositoryCredentials AccountName="" Password="[ACR_Password]" PasswordEncrypted="false" />
+                <PortBinding ContainerPort="8000" EndpointRef="sfcontainerfrontsampleEndpoint"/>
+            </ContainerHostPolicies>
+        </Policies>
+   </ServiceManifestImport>
+   
+   <DefaultServices>
+      <Service Name="sfcontainerbacksample" ServiceDnsName="pythonback">
+         <StatelessService ServiceTypeName="sfcontainerbacksampleType" InstanceCount="-1">
+            <SingletonPartition />
+         </StatelessService>
+      </Service>
+      <Service Name="sfcontainerfrontsample">
+         <StatelessService ServiceTypeName="sfcontainerfrontsampleType" InstanceCount="-1">
+            <SingletonPartition />
+         </StatelessService>
+      </Service>
+   </DefaultServices>
+   
+</ApplicationManifest>

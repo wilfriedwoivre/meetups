@@ -1,0 +1,4 @@
+$AppPath = "$PSScriptRoot\SFContainerSample"
+Copy-ServiceFabricApplicationPackage -ApplicationPackagePath $AppPath -ApplicationPackagePathInImageStore SFContainerSample
+Register-ServiceFabricApplicationType SFContainerSample
+New-ServiceFabricApplication fabric:/SFContainerSample SFContainerSampleType 1.0.0
