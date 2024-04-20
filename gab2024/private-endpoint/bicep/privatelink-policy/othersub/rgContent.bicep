@@ -9,7 +9,7 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
 
 
 resource vnet 'Microsoft.Network/virtualNetworks@2023-09-01' = {
-  name: 'vnet-privateendpoint-vpn-p2s-${uniqueString(resourceGroup().id)}'
+  name: 'vnet-${uniqueString(resourceGroup().id)}'
   location: resourceGroup().location
   properties: {
     addressSpace: {
