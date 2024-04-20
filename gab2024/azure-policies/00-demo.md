@@ -10,3 +10,6 @@ Powershell command to start Compliance Scan
 Start-AzPolicyComplianceScan
 ```
 
+## Event hub policy
+
+Deploy ./bicep/main.bicep

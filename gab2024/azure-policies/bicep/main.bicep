@@ -1,11 +1,12 @@
 targetScope = 'subscription'
+param expirationDate string = utcNow('yyyy-MM-dd')
 
 resource rgAppendDeny 'Microsoft.Resources/resourceGroups@2023-07-01' = {
   name: 'eventhub-append-deny-rg'
   location: 'westeurope'
   tags: {
     AutoDelete: 'true'
-    ExpirationDate: '2024-04-15'
+    ExpirationDate: expirationDate
   }
 }
 
@@ -14,7 +15,7 @@ resource rgModify 'Microsoft.Resources/resourceGroups@2023-07-01' = {
   location: 'westeurope'
   tags: {
     AutoDelete: 'true'
-    ExpirationDate: '2024-04-15'
+    ExpirationDate: expirationDate
   }
 }
 
