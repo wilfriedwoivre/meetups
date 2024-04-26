@@ -244,3 +244,4 @@ resource gwy 'Microsoft.Network/virtualNetworkGateways@2023-09-01' = {
     }
   }
 }
+
